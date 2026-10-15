@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#1769aa">
+<title>SIM Info Pakistan</title>
+<style>
+* { box-sizing: border-box; }
+body {
+  margin: 0; font-family: Arial, sans-serif;
+  background: #f0f5fb; color: #172b4d;
+}
+header {
+  background: #1769aa; color: white;
+  padding: 25px 18px; text-align: center;
+}
+header h1 { margin: 0 0 8px; }
+main {
+  max-width: 480px; margin: 22px auto;
+  padding: 0 15px;
+}
+.card {
+  background: white; padding: 22px;
+  border-radius: 16px; margin-bottom: 16px;
+  box-shadow: 0 4px 16px #18375a12;
+}
+input, button, .link {
+  display: block; width: 100%; padding: 13px;
+  border-radius: 9px; font-size: 16px;
+  margin-top: 12px;
+}
+input { border: 1px solid #b9c8d8; }
+button, .link {
+  border: 0; background: #1769aa; color: white;
+  text-align: center; text-decoration: none;
+  cursor: pointer; font-weight: bold;
+}
+.secondary { background: #e5f0fc; color: #14558c; }
+#result { line-height: 1.6; overflow-wrap: anywhere; }
+footer { text-align: center; padding: 18px; color: #60748b; }
+</style>
+</head>
+<body>
+<header>
+  <h1>📱 SIM Info Pakistan</h1>
+  <div>SIM Information & Official Verification</div>
+</header>
+
+<main>
+  <section class="card">
+    <h2>Mobile Number Checker</h2>
+    <p>Pakistan ka mobile number check karein.</p>
+    <form id="checker">
+      <input id="phone" type="tel"
+        inputmode="numeric" autocomplete="off"
+        placeholder="03001234567" maxlength="13"
+        aria-label="Pakistan mobile number" required>
+      <button type="submit">Check Number Format</button>
+    </form>
+    <p id="result" role="status" aria-live="polite">
+      Aapka number sirf isi device par validate hoga.
+    </p>
+  </section>
+
+  <section class="card">
+    <h2>Official SIM Verification</h2>
+    <p>Apne CNIC par registered SIMs ki
+       tadaad check karne ke liye official PTA portal kholein.</p>
+    <a class="link"
+       href="https://cnic.sims.pk/"
+       target="_blank" rel="noopener noreferrer">
+       Open PTA SIM Portal
+    </a>
+  </section>
+
+  <section class="card">
+    <h2>Privacy & Security</h2>
+    <p>Yeh app mobile number ko kisi server par
+       nahi bhejti aur owner details ka database
+       nahi rakhti.</p>
+    <p>Kisi doosre shakhs ka private naam, CNIC
+       ya registration record yahan se nahi milta.</p>
+  </section>
+</main>
+
+<footer>SIM Info Pakistan · Privacy First</footer>
+
+<script>
+document.getElementById("checker").addEventListener(
+  "submit", function(event) {
+    event.preventDefault();
+
+    const input = document.getElementById("phone");
+    const result = document.getElementById("result");
+    const number = input.value.replace(/[\s-]/g, "");
+
+    // Accept 03XXXXXXXXX or +923XXXXXXXXX
+    const valid = /^(03\d{9}|\+923\d{9}|923\d{9})$/
+      .test(number);
+
+    result.textContent = valid
+      ? "Number format theek lag raha hai. Is se SIM owner ki identity ya network confirm nahi hota."
+      : "Number format check karein. Misal: 03001234567 ya +923001234567.";
+
+  }
+);
+</script>
+</body>
+</html>
