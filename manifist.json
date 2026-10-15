@@ -1,0 +1,19 @@
+{
+  "id": "./",
+  "name": "SIM Info Pakistan",
+  "short_name": "SIM Info",
+  "description": "SIM information and official verification guidance",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f0f5fb",
+  "theme_color": "#1769aa",
+  "icons": [
+    {
+      "src": "./icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}
