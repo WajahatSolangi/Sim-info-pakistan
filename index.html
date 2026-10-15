@@ -7,7 +7,15 @@
 <title>SIM Info Pakistan</title>
 <style>
 * { box-sizing: border-box; }
-body {
+body {<script>
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker.register("./sw.js")
+      .then(() => console.log("PWA ready"))
+      .catch((error) => console.log(error));
+  });
+}
+</script>
   margin: 0; font-family: Arial, sans-serif;
   background: #f0f5fb; color: #172b4d;
 }
