@@ -40,7 +40,23 @@ button, .link {
 #result { line-height: 1.6; overflow-wrap: anywhere; }
 footer { text-align: center; padding: 18px; color: #60748b; }
 </style>
-</head>
+</head><link rel="manifest" href="./manifest.json">
+<meta name="theme-color" content="#0d6efd">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="icon" href="./icon-192.png">
+
+<script>
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker.register("./sw.js")
+      .then(() => console.log("Service Worker registered"))
+      .catch((error) => console.error(
+        "Service Worker error:", error
+      ));
+  });
+}
+</script>
 <body>
 <header>
   <h1>📱 SIM Info Pakistan</h1>
